@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Battesimo — Pit Coffee</title>
+  <meta name="description" content="Box bomboniera per battesimo con tisana biologica, miele e biscottini artigianali. Disponibile in azzurro o rosa. Minimo 10 pezzi.">
+  <link rel="stylesheet" href="css/style.css?v=20260425-configuratore-v4">
+  <style>
+    @media (max-width: 768px) {
+      section .container > div[style*="grid-template-columns:1fr 1fr"],
+      section .container > div[style*="grid-template-columns: 1fr 1fr"] {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.75rem !important;
+      }
+      section .container > div > div:first-child[style*="aspect-ratio:3/4"] {
+        aspect-ratio: 4/3 !important;
+      }
+      h1[style*="font-size:2.5rem"] { font-size: 1.9rem !important; }
+      p[style*="font-size:2rem"] { font-size: 1.5rem !important; }
+      .btn--lg { padding: .8rem 1.25rem; font-size: .9rem; }
+      .btn--full { display: block; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .container { padding-inline: .85rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─ HEADER ──────────────────────────────────────────────────────────────── -->
+<header class="site-header">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;height:var(--header-h);">
+      <a href="index.html" class="logo">
+        <span class="logo__name">Pit Coffee</span>
+        <span class="logo__tagline">Cava Manara · Pavia</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Principale">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="catalog.html" class="nav-link">Bestseller</a>
+        <a href="index.html#bomboniere" class="nav-link">Bomboniere</a>
+        <a href="privacy.html" class="nav-link">Info</a>
+      </nav>
+      <div style="display:flex;gap:1rem;align-items:center;">
+        <a href="mailto:info@pitcoffeepavia.it" class="cart-btn" aria-label="Contattaci" style="text-decoration:none;font-size:.85rem;font-weight:500;">
+          ✉ Contattaci
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─ BREADCRUMB ──────────────────────────────────────────────────────────── -->
+<div style="background:var(--cream);border-bottom:1px solid var(--border-light);padding:1rem 0;">
+  <div class="container" style="font-size:.88rem;">
+    <a href="index.html" style="color:var(--text-3);text-decoration:none;">Home</a>
+    <span style="color:var(--text-3);margin:0 .5rem;">›</span>
+    <a href="index.html#bomboniere-std" style="color:var(--text-3);text-decoration:none;">Bomboniere</a>
+    <span style="color:var(--text-3);margin:0 .5rem;">›</span>
+    <span style="color:var(--dark);font-weight:600;">Box Battesimo</span>
+  </div>
+</div>
+
+<!-- ─ HERO PRODUCT ────────────────────────────────────────────────────────── -->
+<section class="section" style="padding:3rem 0;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+      
+      <!-- Immagine -->
+      <div style="background:var(--cream);border-radius:var(--radius-lg);padding:2rem;aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;overflow:hidden;">
+        <img src="images/prod-box-battesimo.jpg" alt="Box Battesimo" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius);">
+      </div>
+
+      <!-- Dettagli -->
+      <div>
+        <p style="color:var(--gold);font-size:.85rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;">Bomboniera Battesimo</p>
+        <h1 style="font-size:2.5rem;font-family:var(--font-serif);margin-bottom:1rem;color:var(--dark);">Box Battesimo</h1>
+        
+        <div style="display:flex;align-items:baseline;gap:2rem;margin-bottom:2.5rem;">
+          <p style="font-size:2rem;color:var(--gold);font-weight:700;">€28<span style="font-size:1rem;color:var(--text-3);font-weight:400;"> a pezzo</span></p>
+          <span style="background:var(--gold);color:var(--white);padding:.3rem .8rem;border-radius:var(--radius);font-size:.75rem;font-weight:700;">ELEGANZA DELICATA</span>
+        </div>
+
+        <p style="font-size:1.1rem;color:var(--text-2);line-height:1.8;margin-bottom:2rem;">
+          Bomboniera raffinata con tisana biologica, miele puro e biscottini artigianali. Disponibile in azzurro o rosa, perfetta per celebrare l'arrivo di un bambino o una bambina.
+        </p>
+
+        <!-- Specifiche -->
+        <div style="background:var(--cream);padding:2rem;border-radius:var(--radius-md);margin-bottom:2rem;">
+          <h3 style="font-size:.95rem;font-weight:700;margin-bottom:1rem;text-transform:uppercase;letter-spacing:.05em;">Contenuto della scatola</h3>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.75rem;">
+            <li style="display:flex;align-items:start;gap:.75rem;font-size:.95rem;color:var(--dark);">
+              <span style="color:var(--gold);font-weight:700;">•</span>
+              <span>Tisana Biologica Camomilla e Menta (40g)</span>
+            </li>
+            <li style="display:flex;align-items:start;gap:.75rem;font-size:.95rem;color:var(--dark);">
+              <span style="color:var(--gold);font-weight:700;">•</span>
+              <span>Miele di Cardo Biologico (300g)</span>
+            </li>
+            <li style="display:flex;align-items:start;gap:.75rem;font-size:.95rem;color:var(--dark);">
+              <span style="color:var(--gold);font-weight:700;">•</span>
+              <span>Biscottini Artigianali all'Uvetta (120g)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Colori -->
+        <div style="background:rgba(181,131,42,.05);padding:2rem;border-radius:var(--radius-md);margin-bottom:2rem;border-left:4px solid var(--gold);">
+          <p style="font-size:.95rem;font-weight:600;color:var(--dark);margin-bottom:1rem;">Disponibile in due colori:</p>
+          <div style="display:flex;gap:1rem;">
+            <span style="display:inline-flex;align-items:center;gap:.5rem;color:var(--text-2);"><span style="width:16px;height:16px;background:#87CEEB;border-radius:50%;"></span> Azzurro</span>
+            <span style="display:inline-flex;align-items:center;gap:.5rem;color:var(--text-2);"><span style="width:16px;height:16px;background:#FFB6D9;border-radius:50%;"></span> Rosa</span>
+          </div>
+        </div>
+
+        <!-- Ordine -->
+        <div style="background:rgba(181,131,42,.05);padding:2rem;border-radius:var(--radius-md);margin-bottom:2rem;border-left:4px solid var(--gold);">
+          <p style="font-size:.88rem;color:var(--text-2);margin-bottom:1rem;"><strong>Quantità minima:</strong> 10 pezzi</p>
+          <p style="font-size:.88rem;color:var(--text-2);">Multipli di 10. Perfetta per feste di battesimo e celebrazioni di famiglia.</p>
+        </div>
+
+        <a href="mailto:info@pitcoffeepavia.it?subject=Richiesta%20Box%20Battesimo&body=Ciao%2C%20vorrei%20ricevere%20informazioni%20sul%20Box%20Battesimo%20(%E2%82%AC28%20p.p.)." class="btn btn--gold btn--lg btn--full" style="margin-bottom:1rem;text-align:center;">
+          Richiedi informazioni
+        </a>
+
+        <a href="index.html#bomboniere" class="btn btn--outline btn--full">
+          Crea una bomboniera personalizzata
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─ DETTAGLI COMPLETI ──────────────────────────────────────────────────── -->
+<section class="section" style="background:var(--cream);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;">
+      
+      <div>
+        <h2 style="font-size:1.5rem;font-family:var(--font-serif);margin-bottom:1.5rem;">La confezione delicata</h2>
+        <p style="color:var(--text-2);line-height:1.8;margin-bottom:1.5rem;">
+          Cartoncino soft-touch in azzurro o rosa con fiocco di raso. Include bigliettino personalizzato con il nome del bambino o della bambina. Eleganza semplice, perfetta per l'occasione.
+        </p>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.75rem;color:var(--text-2);">
+          <li style="display:flex;gap:.5rem;"><span style="color:var(--gold);">✓</span> Cartoncino soft-touch</li>
+          <li style="display:flex;gap:.5rem;"><span style="color:var(--gold);">✓</span> Colori azzurro o rosa</li>
+          <li style="display:flex;gap:.5rem;"><span style="color:var(--gold);">✓</span> Fiocco di raso coordinato</li>
+          <li style="display:flex;gap:.5rem;"><span style="color:var(--gold);">✓</span> Bigliettino personalizzato</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 style="font-size:1.5rem;font-family:var(--font-serif);margin-bottom:1.5rem;">Prodotti biologici</h2>
+        <p style="color:var(--text-2);line-height:1.8;margin-bottom:1.5rem;">
+          Tisana e miele certificati biologici, biscottini artigianali senza additivi. Una scelta consapevole per celebrare la dolcezza di questo momento speciale con genuinità.
+        </p>
+        <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.75rem;color:var(--text-2);">
+          <li style="display:flex;gap:.5rem;"><span style="color:var(--gold);">✓</span> Tisana biologica certificata</li>
+          <li style="display:flex;gap:.5rem;"><span style="color:var(--gold);">✓</span> Miele biologico puro</li>
+          <li style="display:flex;gap:.5rem;"><span style="color:var(--gold);">✓</span> Biscottini artigianali</li>
+          <li style="display:flex;gap:.5rem;"><span style="color:var(--gold);">✓</span> Zero conservanti e aromi artificiali</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─ ALTRE BOX ────────────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header" style="text-align:center;margin-bottom:3rem;">
+      <p class="eyebrow">Scopri le altre</p>
+      <h2>Bomboniere standard</h2>
+    </div>
+
+    <div class="products-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;">
+      
+      <!-- Box Matrimonio Classico -->
+      <a href="box-matrimonio-classico.html" style="text-decoration:none;color:inherit;">
+        <div style="border:1.5px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden;background:var(--white);transition:box-shadow var(--transition),transform var(--transition);cursor:pointer;" onmouseover="this.style.boxShadow='var(--shadow-md)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+          <div style="aspect-ratio:1;overflow:hidden;background:var(--cream);">
+            <img src="images/prod-box-matrimonio.jpg" alt="Box Matrimonio Classico" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="padding:1.25rem;">
+            <h4 style="font-size:1rem;font-family:var(--font-serif);font-weight:500;margin-bottom:0.5rem;">Box Matrimonio</h4>
+            <p style="font-size:0.85rem;color:var(--text-3);margin-bottom:0.75rem;">Confettura, miele biologico, cioccolato 80%</p>
+            <p style="font-size:1.1rem;font-weight:600;color:var(--gold);">€35 <span style="font-size:0.75rem;color:var(--text-3);font-weight:400;">/ pz</span></p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Box Matrimonio Premium -->
+      <a href="box-matrimonio-premium.html" style="text-decoration:none;color:inherit;">
+        <div style="border:1.5px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden;background:var(--white);transition:box-shadow var(--transition),transform var(--transition);cursor:pointer;" onmouseover="this.style.boxShadow='var(--shadow-md)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+          <div style="aspect-ratio:1;overflow:hidden;background:var(--cream);">
+            <img src="images/prod-box-matrimonio.jpg" alt="Box Matrimonio Premium" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="padding:1.25rem;">
+            <h4 style="font-size:1rem;font-family:var(--font-serif);font-weight:500;margin-bottom:0.5rem;">Box Matrimonio Premium</h4>
+            <p style="font-size:0.85rem;color:var(--text-3);margin-bottom:0.75rem;">Olio EVO, miele acacia, praline cioccolato</p>
+            <p style="font-size:1.1rem;font-weight:600;color:var(--gold);">€55 <span style="font-size:0.75rem;color:var(--text-3);font-weight:400;">/ pz</span></p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Box Laurea -->
+      <a href="box-laurea.html" style="text-decoration:none;color:inherit;">
+        <div style="border:1.5px solid var(--border-light);border-radius:var(--radius-md);overflow:hidden;background:var(--white);transition:box-shadow var(--transition),transform var(--transition);cursor:pointer;" onmouseover="this.style.boxShadow='var(--shadow-md)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='none';this.style.transform='translateY(0)'">
+          <div style="aspect-ratio:1;overflow:hidden;background:var(--cream);">
+            <img src="images/prod-box-laurea.jpg" alt="Box Laurea" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div style="padding:1.25rem;">
+            <h4 style="font-size:1rem;font-family:var(--font-serif);font-weight:500;margin-bottom:0.5rem;">Box Laurea</h4>
+            <p style="font-size:0.85rem;color:var(--text-3);margin-bottom:0.75rem;">Caffè specialty, cioccolato, confettura di agrumi</p>
+            <p style="font-size:1.1rem;font-weight:600;color:var(--gold);">€32 <span style="font-size:0.75rem;color:var(--text-3);font-weight:400;">/ pz</span></p>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─ FOOTER ──────────────────────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo footer-logo">
+          <span class="logo__name">Pit Coffee</span>
+          <span class="logo__tagline">Cava Manara · Pavia</span>
+        </a>
+        <p class="footer-desc">Prodotti gourmet artigianali, caffè specialty e bomboniere gastronomiche personalizzate. L'autenticità italiana a casa tua.</p>
+      </div>
+      <div>
+        <h4 class="footer-title">Navigazione</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalog.html">Bestseller</a></li>
+          <li><a href="index.html#bomboniere">Bomboniere</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-title">Contatti</h4>
+        <p style="font-size:.88rem;color:var(--text-2);">
+          <strong>Pit Coffee</strong><br>
+          Via Palmiro Togliatti 26<br>
+          Cava Manara (PV)<br>
+          <a href="tel:+390382304728" style="color:var(--gold);text-decoration:none;">0382 304728</a>
+        </p>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border-light);padding-top:2rem;margin-top:2rem;text-align:center;font-size:.8rem;color:var(--text-3);">
+      <p>&copy; 2024 Pit Coffee. Tutti i diritti riservati.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

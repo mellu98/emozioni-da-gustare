@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bomboniere Gastronomiche Pit Coffee — Box artigianali fatte a mano, prodotti selezionati con cura per matrimoni, battesimi, lauree e feste. Cava Manara, Pavia.">
+  <title>Bomboniere Gastronomiche · Pit Coffee</title>
+  <link rel="stylesheet" href="css/style.css?v=20260425-configuratore-v4">
+  <link rel="icon" href="images/logo.png">
+  <style>
+
+    /* ── HERO BOMBONIERE ───────────────────────────────────────────────── */
+    .bomb-hero {
+      position: relative;
+      min-height: 75vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--dark);
+    }
+    .bomb-hero__bg {
+      position: absolute;
+      inset: 0;
+    }
+    .bomb-hero__bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: .5;
+    }
+    .bomb-hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(0,0,0,.85) 0%,
+        rgba(0,0,0,.40) 50%,
+        rgba(0,0,0,.15) 100%
+      );
+    }
+    .bomb-hero__content {
+      position: relative;
+      z-index: 1;
+      padding: 5rem 0 4rem;
+      max-width: 700px;
+    }
+    .bomb-hero__title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+      text-shadow: 0 2px 24px rgba(0,0,0,.7);
+    }
+    .bomb-hero__title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .bomb-hero__desc {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.88);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 2rem;
+      text-shadow: 0 1px 10px rgba(0,0,0,.6);
+    }
+    .bomb-hero__badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+    }
+    .bomb-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: rgba(181,131,42,.18);
+      border: 1px solid rgba(181,131,42,.4);
+      color: var(--gold-light);
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      padding: .4rem .85rem;
+      border-radius: 100px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* ── 4 BOX SHOWCASE ────────────────────────────────────────────────── */
+    .showcase-section {
+      background: var(--cream);
+      padding: 5rem 0;
+    }
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+    @media (max-width: 768px) { .showcase-grid { grid-template-columns: 1fr; } }
+
+    .showcase-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1.5px solid var(--border-light);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+    }
+    .showcase-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,.12);
+    }
+    @media (max-width: 600px) {
+      .showcase-card { grid-template-columns: 1fr; }
+    }
+    .showcase-card__img {
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+    }
+    .showcase-card__img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .showcase-card:hover .showcase-card__img img {
+      transform: scale(1.04);
+    }
+    .showcase-card__badge {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      background: var(--gold);
+      color: var(--white);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .3rem .75rem;
+      border-radius: 100px;
+    }
+    .showcase-card__body {
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .showcase-card__event {
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .6rem;
+    }
+    .showcase-card__name {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .showcase-card__desc {
+      font-size: .88rem;
+      color: var(--text-2);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .showcase-card__values {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .45rem;
+    }
+    .showcase-card__values li {
+      display: flex;
+      align-items: flex-start;
+      gap: .5rem;
+      font-size: .82rem;
+      color: var(--text-2);
+      line-height: 1.4;
+    }
+    .showcase-card__values li::before {
+      content: '';
+      display: block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      margin-top: .35em;
+    }
+    .showcase-card__price {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .showcase-card__price small {
+      font-family: var(--font-sans);
+      font-size: .75rem;
+      color: var(--text-3);
+      font-weight: 400;
+    }
+
+    /* ── MANIFESTO ─────────────────────────────────────────────────────── */
+    .manifesto-section {
+      padding: 5rem 0;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .manifesto-section::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,131,42,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .manifesto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    @media (max-width: 768px) { .manifesto-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .manifesto-text blockquote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.5;
+      border-left: 3px solid var(--gold);
+      padding-left: 1.5rem;
+      margin: 0 0 2rem;
+    }
+    .manifesto-text p {
+      font-size: .95rem;
+      color: rgba(255,255,255,.65);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .manifesto-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .pillar {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+    }
+    .pillar__icon {
+      font-size: 1.5rem;
+      margin-bottom: .6rem;
+    }
+    .pillar__title {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+    }
+    .pillar__text {
+      font-size: .8rem;
+      color: rgba(255,255,255,.5);
+      line-height: 1.5;
+    }
+
+    /* ── PRODUCTS GRID ─────────────────────────────────────────────────── */
+    .bomb-products-section {
+      padding: 5rem 0;
+      background: var(--white);
+    }
+
+    /* ── CTA STRIP ─────────────────────────────────────────────────────── */
+    .cta-strip {
+      background: linear-gradient(135deg, rgba(181,131,42,.12) 0%, rgba(181,131,42,.04) 100%);
+      border-top: 1px solid rgba(181,131,42,.2);
+      border-bottom: 1px solid rgba(181,131,42,.2);
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ─ HEADER ──────────────────────────────────────────────────────────────── -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo__name">Pit Coffee</span>
+        <span class="logo__tagline">Cava Manara · Pavia</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigazione principale">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="catalog.html" class="nav-link">Bestseller</a>
+        <a href="bomboniere.html" class="nav-link active">Bomboniere</a>
+        <a href="index.html#about" class="nav-link">Chi siamo</a>
+      </nav>
+      <div class="header-actions">
+        <a href="mailto:info@pitcoffeepavia.it" class="cart-btn" aria-label="Contattaci" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </a>
+        <button class="nav-burger" id="nav-burger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav class="mobile-nav">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="catalog.html" class="mobile-nav-link">Bestseller</a>
+    <a href="bomboniere.html" class="mobile-nav-link">Bomboniere</a>
+    <a href="index.html#about" class="mobile-nav-link" onclick="Nav.closeMobile()">Chi siamo</a>
+  </nav>
+  <a href="mailto:info@pitcoffeepavia.it" class="btn btn--outline" onclick="Nav.closeMobile()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+      <polyline points="22,6 12,13 2,6"/>
+    </svg>
+    Contattaci
+  </a>
+</div>
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+
+<!-- ─ HERO ────────────────────────────────────────────────────────────────── -->
+<section class="bomb-hero">
+  <div class="bomb-hero__bg">
+    <img src="images/cta-bomboniere.jpg" alt="Bomboniere gastronomiche Pit Coffee">
+  </div>
+  <div class="container">
+    <div class="bomb-hero__content">
+      <p class="eyebrow" style="color:var(--gold-light);margin-bottom:1rem;text-shadow:0 1px 8px rgba(0,0,0,.7);">Pit Coffee · Bomboniere Gastronomiche</p>
+      <h1 class="bomb-hero__title">
+        Un dono che parla<br>di <em>cura artigianale</em>
+      </h1>
+      <p class="bomb-hero__desc">
+        Ogni box è pensata, costruita e confezionata a mano nel nostro negozio a Cava Manara. Selezioniamo personalmente ogni prodotto — dal miele biologico al cioccolato di nicchia — perché quello che regali ai tuoi ospiti deve raccontare quanto tieni a loro.
+      </p>
+      <div class="bomb-hero__badges">
+        <span class="bomb-badge">✦ Fatto a mano</span>
+        <span class="bomb-badge">✦ Prodotti artigianali selezionati</span>
+        <span class="bomb-badge">✦ Personalizzabile</span>
+        <span class="bomb-badge">✦ Minimo 10 pz</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─ 4 BOX SHOWCASE ─────────────────────────────────────────────────────── -->
+<section class="showcase-section">
+  <div class="container">
+
+    <div class="section-header">
+      <p class="eyebrow">Le nostre box</p>
+      <h2>Quattro proposte, un'unica filosofia</h2>
+      <p style="max-width:540px;margin-inline:auto;">
+        Ogni box nasce da una selezione meticolosa. Nessun prodotto è scelto per caso — solo eccellenze italiane che raccontano territorialità, artigianalità e sapore autentico.
+      </p>
+    </div>
+
+    <div class="showcase-grid">
+
+      <!-- Box Matrimonio Classico -->
+      <div class="showcase-card">
+        <div class="showcase-card__img">
+          <img src="images/prod-box-matrimonio.jpg" alt="Box Matrimonio Classico">
+          <span class="showcase-card__badge">Bestseller</span>
+        </div>
+        <div class="showcase-card__body">
+          <p class="showcase-card__event">Matrimonio</p>
+          <h3 class="showcase-card__name">Box Classico</h3>
+          <p class="showcase-card__desc">
+            La nostra proposta più amata. Tre prodotti d'eccellenza scelti per il loro equilibrio di sapori e la loro capacità di evocare la tradizione siciliana.
+          </p>
+          <ul class="showcase-card__values">
+            <li>Confettura di fichi neri di Sicilia, raccolta artigianale</li>
+            <li>Miele millefiori biologico certificato</li>
+            <li>Cioccolato fondente 80%, fave selezionate</li>
+            <li>Packaging in cartone riciclato con nastro in raso</li>
+          </ul>
+          <p class="showcase-card__price">€35 <small>/ pezzo · min. 10 pz</small></p>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
+            <a href="box-matrimonio-classico.html" class="btn btn--outline btn--sm">Scopri →</a>
+            <a href="mailto:info@pitcoffeepavia.it?subject=Richiesta%20Box%20Matrimonio%20Classico" class="btn btn--gold btn--sm">Richiedi info</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Box Matrimonio Premium -->
+      <div class="showcase-card" style="border-color:var(--gold);">
+        <div class="showcase-card__img">
+          <img src="images/cat-bomboniere.jpg" alt="Box Matrimonio Premium">
+          <span class="showcase-card__badge" style="background:var(--dark);">★ Premium</span>
+        </div>
+        <div class="showcase-card__body">
+          <p class="showcase-card__event">Matrimonio</p>
+          <h3 class="showcase-card__name">Box Premium</h3>
+          <p class="showcase-card__desc">
+            Per chi vuole stupire davvero. Cinque prodotti d'eccellenza in una scatola rigida con coperchio magnetico e fodera in seta — un'esperienza sensoriale completa.
+          </p>
+          <ul class="showcase-card__values">
+            <li>Olio EVO siciliano DOP, prima spremitura a freddo</li>
+            <li>Miele d'acacia purissimo, monofloreale</li>
+            <li>Praline al cioccolato fondente, fatte a mano</li>
+            <li>Confettura di fichi, ricetta tradizionale</li>
+            <li>Box rigida con fodera in seta e nastro doppio</li>
+          </ul>
+          <p class="showcase-card__price">€55 <small>/ pezzo · min. 10 pz</small></p>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
+            <a href="box-matrimonio-premium.html" class="btn btn--outline btn--sm">Scopri →</a>
+            <a href="mailto:info@pitcoffeepavia.it?subject=Richiesta%20Box%20Matrimonio%20Premium" class="btn btn--gold btn--sm">Richiedi info</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Box Battesimo -->
+      <div class="showcase-card">
+        <div class="showcase-card__img">
+          <img src="images/prod-box-battesimo.jpg" alt="Box Battesimo">
+        </div>
+        <div class="showcase-card__body">
+          <p class="showcase-card__event">Battesimo · Nascita</p>
+          <h3 class="showcase-card__name">Box Battesimo</h3>
+          <p class="showcase-card__desc">
+            Delicata e poetica come il momento che celebra. Prodotti scelti per la loro dolcezza e naturalezza, avvolti in una confezione soft-touch disponibile azzurra o rosa.
+          </p>
+          <ul class="showcase-card__values">
+            <li>Tisana biologica ai fiori, senza aromi artificiali</li>
+            <li>Miele millefiori, dolce e vellutato</li>
+            <li>Biscottini di frolla artigianali, ricetta di casa</li>
+            <li>Confezione soft-touch con fiocco personalizzato</li>
+            <li>Bigliettino con il nome del bambino incluso</li>
+          </ul>
+          <p class="showcase-card__price">€28 <small>/ pezzo · min. 10 pz</small></p>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
+            <a href="box-battesimo.html" class="btn btn--outline btn--sm">Scopri →</a>
+            <a href="mailto:info@pitcoffeepavia.it?subject=Richiesta%20Box%20Battesimo" class="btn btn--gold btn--sm">Richiedi info</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Box Laurea -->
+      <div class="showcase-card">
+        <div class="showcase-card__img">
+          <img src="images/prod-box-laurea.jpg" alt="Box Laurea">
+        </div>
+        <div class="showcase-card__body">
+          <p class="showcase-card__event">Laurea · Celebrazione</p>
+          <h3 class="showcase-card__name">Box Laurea</h3>
+          <p class="showcase-card__desc">
+            Un traguardo importante merita un regalo all'altezza. Prodotti energici e celebrativi che sanno di conquista — per ricordare un giorno che non si dimentica.
+          </p>
+          <ul class="showcase-card__values">
+            <li>Caffè specialty macinato, single origin d'eccellenza</li>
+            <li>Cioccolato fondente 70%, selezione artigianale</li>
+            <li>Confettura di agrumi di Sicilia, ricetta tradizionale</li>
+            <li>Packaging personalizzabile per tema di laurea</li>
+            <li>Colori e nastro a scelta</li>
+          </ul>
+          <p class="showcase-card__price">€32 <small>/ pezzo · min. 10 pz</small></p>
+          <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
+            <a href="box-laurea.html" class="btn btn--outline btn--sm">Scopri →</a>
+            <a href="mailto:info@pitcoffeepavia.it?subject=Richiesta%20Box%20Laurea" class="btn btn--gold btn--sm">Richiedi info</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ─ MANIFESTO ───────────────────────────────────────────────────────────── -->
+<section class="manifesto-section section">
+  <div class="container">
+    <div class="manifesto-grid">
+
+      <div class="manifesto-text">
+        <p class="eyebrow" style="color:var(--gold-light);margin-bottom:1.5rem;">La nostra filosofia</p>
+        <blockquote>
+          "Non vendiamo bomboniere.<br>Creiamo ricordi edibili."
+        </blockquote>
+        <p>
+          Da Pit Coffee ogni bomboniera nasce da una conversazione. Ascoltiamo la storia dell'evento, le preferenze degli sposi o dei festeggiati, e costruiamo qualcosa di unico — prodotto per prodotto, nastro per nastro.
+        </p>
+        <p>
+          I nostri fornitori sono piccoli produttori artigiani, selezionati dopo anni di ricerca. Ogni ingrediente arriva da mani che ci credono come le nostre.
+        </p>
+        <a href="mailto:info@pitcoffeepavia.it?subject=Consulenza%20Bomboniere%20Personalizzate" class="btn btn--gold btn--lg" style="margin-top:1.5rem;">
+          Raccontaci il tuo evento →
+        </a>
+      </div>
+
+      <div class="manifesto-pillars">
+        <div class="pillar">
+          <div class="pillar__icon">🤲</div>
+          <p class="pillar__title">Fatto a mano</p>
+          <p class="pillar__text">Ogni box è confezionata singolarmente nel nostro negozio. Nessuna catena di montaggio.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar__icon">🫙</div>
+          <p class="pillar__title">Selezionati uno a uno</p>
+          <p class="pillar__text">Conosciamo di persona i produttori di ogni articolo. Assaggiamo tutto prima di proporlo.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar__icon">🎀</div>
+          <p class="pillar__title">Personalizzabile</p>
+          <p class="pillar__text">Nastro, scatola, bigliettino, prodotti — ogni dettaglio può essere su misura per voi.</p>
+        </div>
+        <div class="pillar">
+          <div class="pillar__icon">🇮🇹</div>
+          <p class="pillar__title">100% artigianale italiano</p>
+          <p class="pillar__text">Privilegiamo piccole eccellenze locali e nazionali. La tradizione italiana nel palmo di una mano.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ─ TUTTI I PRODOTTI BOMBONIERE ─────────────────────────────────────────── -->
+<section class="bomb-products-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="eyebrow">Tutte le bomboniere</p>
+      <h2>Scopri l'intera collezione</h2>
+      <p>Box pronte e personalizzabili per ogni tipo di evento. Ogni articolo è disponibile a partire da 10 pezzi.</p>
+    </div>
+    <div class="products-grid" id="bomb-grid" style="margin-top:2.5rem;">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ─ CTA CONTATTO ───────────────────────────────────────────────────────── -->
+<div class="cta-strip">
+  <div class="container">
+    <p class="eyebrow" style="margin-bottom:.75rem;">Non trovi quello che cerchi?</p>
+    <h3 style="font-family:var(--font-serif);font-size:1.8rem;font-weight:400;margin-bottom:.75rem;color:var(--dark);">Crea la tua bomboniera su misura</h3>
+    <p style="color:var(--text-2);max-width:480px;margin-inline:auto;margin-bottom:1.75rem;">
+      Possiamo costruire qualsiasi box con i prodotti che desideri. Contattaci per un preventivo personalizzato.
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="mailto:info@pitcoffeepavia.it?subject=Preventivo%20Bomboniere%20Su%20Misura" class="btn btn--primary btn--lg">Richiedi un preventivo</a>
+      <a href="tel:+390382304728" class="btn btn--outline btn--lg">0382 304728</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ─ CONFIGURATORE BOMBONIERA ────────────────────────────────────────────── -->
+<section class="bomb-configurator section" id="configuratore" aria-labelledby="bomb-title">
+  <div class="bomb-configurator__bg">
+    <img src="images/cta-bomboniere.jpg" alt="" aria-hidden="true">
+  </div>
+  <div class="container">
+
+    <div class="section-header" style="margin-bottom:3rem;">
+      <p class="eyebrow" style="color:var(--gold-light);">Componi la tua</p>
+      <h2 id="bomb-title" style="color:var(--white);">Configuratore bomboniera</h2>
+      <p style="color:rgba(255,255,255,.6);max-width:520px;margin-inline:auto;">Scegli se vuoi una bomboniera dedicata oppure una box gourmet personalizzata. La box si configura passo dopo passo; la bomboniera apre un percorso pi&ugrave; rapido con proposta su misura.</p>
+    </div>
+
+    <div class="bomb-configurator__inner">
+
+      <!-- ── ANTEPRIMA ────────────────────────────────────────────────── -->
+      <div class="bomb-preview is-request-only">
+        <div class="bomb-preview__img">
+          <img src="images/prod-box-matrimonio.jpg" alt="Anteprima bomboniera" id="preview-img" onerror="this.src='images/cta-bomboniere.jpg'">
+        </div>
+        <p class="bomb-preview__event" id="preview-event">Seleziona un evento per iniziare</p>
+        <h3 id="preview-title">La tua bomboniera</h3>
+        <div class="bomb-preview__contents" id="preview-contents">
+          <p class="bomb-preview__empty">Aggiungi i prodotti dal menu →</p>
+        </div>
+        <hr class="bomb-preview__divider">
+        <div class="bomb-preview__price-row">
+          <span class="bomb-preview__price-label">Prezzo per pezzo</span>
+          <div class="bomb-preview__price" id="preview-price">
+            €&nbsp;<span id="price-val">0,00</span>
+            <small>+ IVA</small>
+          </div>
+        </div>
+        <p class="bomb-preview__total" id="preview-total">Seleziona almeno un prodotto</p>
+        <a href="mailto:info@pitcoffeepavia.it?subject=Richiesta%20Bomboniere%20Personalizzate" class="btn btn--gold btn--full btn--lg" id="bomb-request-btn" style="margin-bottom:.75rem;text-align:center;">
+          Richiedi Preventivo
+        </a>
+        <a href="tel:+390382304728" class="btn btn--ghost btn--full btn--sm" style="color:rgba(255,255,255,.5);border-color:rgba(255,255,255,.15);">
+          Oppure chiamaci: 0382 304728
+        </a>
+      </div>
+
+      <!-- ── STEPS ────────────────────────────────────────────────────── -->
+      <div class="bomb-steps">
+
+
+        <!-- Step 1: Tipo -->
+        <div class="bomb-step active" id="step-kind">
+          <div class="bomb-choice-stage">
+            <span class="bomb-choice-stage__number">1</span>
+            <div class="bomb-choice-stage__intro">
+              <span class="bomb-choice-stage__kicker">Percorso guidato</span>
+              <h4>Scegli cosa vuoi creare</h4>
+              <p>Partiamo dalla scelta giusta: bomboniera dedicata oppure box gourmet personalizzata.</p>
+            </div>
+            <div class="bomb-type-cards">
+              <button class="bomb-type-card bomb-type-card--bomboniera" type="button" data-kind="bomboniera" onclick="selectBombType(this)">
+                <span class="bomb-type-card__badge">Scelta semplice</span>
+                <span class="bomb-type-card__icon">&#127873;</span>
+                <span class="bomb-type-card__name">Bomboniera</span>
+                <span class="bomb-type-card__desc">Scegli il tipo di bomboniera e richiedi una proposta dedicata.</span>
+                <span class="bomb-type-card__cta">Scegli bomboniera &rarr;</span>
+              </button>
+              <button class="bomb-type-card bomb-type-card--box" type="button" data-kind="box" onclick="selectBombType(this)">
+                <span class="bomb-type-card__badge">Pi&ugrave; personalizzabile</span>
+                <span class="bomb-type-card__icon">&#128230;</span>
+                <span class="bomb-type-card__name">Box personalizzata</span>
+                <span class="bomb-type-card__desc">Configura evento, prodotti artigianali, nastro, bigliettino e quantit&agrave;.</span>
+                <span class="bomb-type-card__cta">Configura la box &rarr;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Step 2: Evento / Box -->
+        <div class="bomb-step" id="step-1">
+          <div class="bomb-step__header">
+            <span class="bomb-step__num">2</span>
+            <h4>Scegli il tipo di evento</h4>
+          </div>
+          <div class="event-cards">
+            <div class="event-card" data-event="Matrimonio" data-base="22" data-img="prod-box-matrimonio.jpg" onclick="selectEvent(this)">
+              <span class="event-card__icon">💍</span>
+              <span class="event-card__name">Matrimonio</span>
+            </div>
+            <div class="event-card" data-event="Battesimo" data-base="18" data-img="prod-box-battesimo.jpg" onclick="selectEvent(this)">
+              <span class="event-card__icon">🕊️</span>
+              <span class="event-card__name">Battesimo</span>
+            </div>
+            <div class="event-card" data-event="Laurea" data-base="18" data-img="prod-box-laurea.jpg" onclick="selectEvent(this)">
+              <span class="event-card__icon">🎓</span>
+              <span class="event-card__name">Laurea</span>
+            </div>
+            <div class="event-card" data-event="Compleanno" data-base="15" data-img="cta-bomboniere.jpg" onclick="selectEvent(this)">
+              <span class="event-card__icon">🎂</span>
+              <span class="event-card__name">Compleanno</span>
+            </div>
+            <div class="event-card" data-event="Anniversario" data-base="20" data-img="prod-box-matrimonio.jpg" onclick="selectEvent(this)">
+              <span class="event-card__icon">❤️</span>
+              <span class="event-card__name">Anniversario</span>
+            </div>
+            <div class="event-card" data-event="Azienda" data-base="20" data-img="cta-bomboniere.jpg" onclick="selectEvent(this)">
+              <span class="event-card__icon">🏢</span>
+              <span class="event-card__name">Evento aziendale</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bomb-step requires-box" id="step-2">
+          <div class="bomb-step__header">
+            <span class="bomb-step__num">3</span>
+            <h4 id="step-2-title">Componi il contenuto del box</h4>
+          </div>
+          <div class="box-product-catalog" id="box-product-catalog" aria-live="polite"></div>
+          <p class="min-notice" id="products-min-notice">Seleziona almeno 2 prodotti per il tuo box. I prezzi indicati sono per singolo prodotto.</p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="bomb-step requires-box" id="step-3">
+          <div class="bomb-step__header">
+            <span class="bomb-step__num">4</span>
+            <h4>Personalizza l'imballaggio</h4>
+          </div>
+          <div style="margin-bottom:1.5rem;">
+            <span class="bomb-input-label">Tipo di scatola</span>
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;">
+              <button class="chip-box selected" data-type="scatola" data-val="cartone" onclick="selectPersonalization(this,'scatola')" style="background:rgba(181,131,42,.15);border:2px solid var(--gold);color:var(--white);padding:.75rem;border-radius:var(--radius);cursor:pointer;font-size:.85rem;text-align:left;">📦 Cartone Riciclato</button>
+              <button class="chip-box" data-type="scatola" data-val="rigida" onclick="selectPersonalization(this,'scatola')" style="background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.9);padding:.75rem;border-radius:var(--radius);cursor:pointer;font-size:.85rem;text-align:left;">🎁 Scatola Rigida</button>
+            </div>
+          </div>
+          <div style="margin-bottom:1.5rem;">
+            <span class="bomb-input-label">Colore del nastro</span>
+            <div class="nastro-swatches" id="nastro-swatches-config" style="display:flex;gap:.6rem;flex-wrap:wrap;">
+              <button class="nastro-swatch selected" style="background:#F5F0E8;" data-name="Avorio" onclick="selectNastroConfig(this)" title="Avorio"/>
+              <button class="nastro-swatch" style="background:#C9A84C;" data-name="Oro" onclick="selectNastroConfig(this)" title="Oro"/>
+              <button class="nastro-swatch" style="background:#C9A0A0;" data-name="Rosa antico" onclick="selectNastroConfig(this)" title="Rosa antico"/>
+              <button class="nastro-swatch" style="background:#A8BAC9;" data-name="Azzurro polvere" onclick="selectNastroConfig(this)" title="Azzurro polvere"/>
+              <button class="nastro-swatch" style="background:#7A3B4E;" data-name="Borgogna" onclick="selectNastroConfig(this)" title="Borgogna"/>
+              <button class="nastro-swatch" style="background:#7A9E7E;" data-name="Verde salvia" onclick="selectNastroConfig(this)" title="Verde salvia"/>
+              <button class="nastro-swatch" style="background:#3D3D3D;" data-name="Antracite" onclick="selectNastroConfig(this)" title="Antracite"/>
+            </div>
+          </div>
+          <div>
+            <span class="bomb-input-label">Testo del bigliettino <span style="text-transform:none;font-weight:400;color:rgba(255,255,255,.3)">(max 60 caratteri)</span></span>
+            <input type="text" class="bomb-input" id="card-text-config" maxlength="60" placeholder="Es: Con tutto il nostro amore — Maria & Luca" oninput="updatePreview()">
+            <span style="font-size:.7rem;color:rgba(255,255,255,.25);float:right;margin-top:.25rem;"><span id="char-count-config">0</span>/60</span>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="bomb-step requires-box" id="step-4">
+          <div class="bomb-step__header">
+            <span class="bomb-step__num">5</span>
+            <h4>Quante bomboniere ti servono?</h4>
+          </div>
+          <div class="qty-bomb">
+            <div class="qty-control qty-control--lg">
+              <button class="qty-btn" onclick="changeBombQty(-10)">−</button>
+              <span id="bomb-qty" style="font-size:1.25rem;font-weight:700;min-width:3rem;text-align:center;">10</span>
+              <button class="qty-btn" onclick="changeBombQty(10)">+</button>
+            </div>
+            <div class="qty-bomb-info">
+              <p style="color:rgba(255,255,255,.7);font-weight:500;" id="qty-label">10 bomboniere</p>
+              <p>Minimo 10 pezzi · Multipli di 10</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /bomb-steps -->
+    </div><!-- /bomb-configurator__inner -->
+  </div>
+</section>
+
+
+<!-- ─ FOOTER ──────────────────────────────────────────────────────────────── -->
+<footer class="site-footer" aria-labelledby="footer-title">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="logo footer-logo">
+          <span class="logo__name">Pit Coffee</span>
+          <span class="logo__tagline">Cava Manara · Pavia</span>
+        </a>
+        <p class="footer-desc">Prodotti gourmet artigianali, caffè specialty e bomboniere gastronomiche personalizzate. L'autenticità italiana a casa tua.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/pit_coffee_cava_manara_/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="tel:+390382304728" class="social-link" aria-label="Telefono">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.25 1.23 2 2 0 012.23.25h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.78-1.57a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 id="footer-title">Navigazione</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalog.html">Bestseller</a></li>
+          <li><a href="bomboniere.html">Bomboniere</a></li>
+          <li><a href="catalog.html?cat=gourmet">Gourmet</a></li>
+          <li><a href="catalog.html?cat=caffe">Caffè</a></li>
+          <li><a href="catalog.html?cat=te">Tè & Infusi</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informazioni</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#about">Chi siamo</a></li>
+          <li><a href="privacy.html">Privacy & Cookie</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <div class="footer-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Via Palmiro Togliatti 26<br>27051 Cava Manara (PV)</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.25 1.23 2 2 0 012.23.25h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.29 6.29l1.78-1.57a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+390382304728">0382 304728</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@pitcoffeepavia.it">info@pitcoffeepavia.it</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Pit Coffee · Cava Manara · P.IVA IT01234567890</span>
+      <div style="display:flex;gap:1.25rem;flex-wrap:wrap;">
+        <a href="privacy.html" style="color:rgba(255,255,255,.35)">Privacy & Cookie</a>
+        <a href="resi.html" style="color:rgba(255,255,255,.35)">Resi e rimborsi</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─ PRODUCT MODAL ──────────────────────────────────────────────────────── -->
+<div class="modal-overlay" id="modal-overlay" aria-hidden="true"></div>
+<div class="modal" id="product-modal" role="dialog" aria-modal="true">
+  <button class="modal__close" id="modal-close" aria-label="Chiudi">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  <div id="modal-content"></div>
+</div>
+
+<script src="js/store.js"></script>
+<script src="js/main.js"></script>
+<script src="js/bomb-configurator.js?v=20260425-configuratore-v4"></script>
+<script>
+// ── Popolamento griglia bomboniere ────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('bomb-grid');
+  if (grid) {
+    const products = Store.getByCategory('bomboniere');
+    grid.innerHTML = products.map(p => buildProductCard(p)).join('');
+  }
+});
+
+</script>
+</body>
+</html>
